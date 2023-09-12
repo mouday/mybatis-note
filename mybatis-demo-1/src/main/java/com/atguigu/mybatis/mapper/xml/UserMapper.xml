@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.mybatis.mapper.UserMapper">
+
+    <!-- 添加用户信息 -->
+    <insert id="insertUser">
+        insert into
+            t_user
+            (username, password, age, sex, email)
+        values
+            ('admin','123456',23,'男', "123456@qq.com")
+    </insert>
+
+    <!-- 更新用户信息 -->
+    <update id="updateUser">
+        update
+            t_user
+        set
+            username = "张三"
+        where
+            id = 1
+    </update>
+
+
+    <!-- 删除用户数据 -->
+    <delete id="deleteUser">
+        delete from
+            t_user
+        where
+            id = 1
+    </delete>
+
+    <!-- 查询单个用户 -->
+    <select id="getUserById" resultType="com.atguigu.mybatis.pojo.User">
+        select
+            *
+        from
+            t_user
+        where
+            id = 3
+    </select>
+
+    <!--查询所有用户-->
+    <!--<select id="getAllUser" resultType="com.atguigu.mybatis.pojo.User">-->
+    <select id="getAllUser" resultType="User">
+        select * from t_user
+    </select>
+</mapper>
